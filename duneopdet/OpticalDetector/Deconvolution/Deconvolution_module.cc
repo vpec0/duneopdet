@@ -460,6 +460,17 @@ namespace opdet {
     mfi<<"\n";
     //=== === ===
 
+    // Info on filters
+    mfi<<"Applying filter "<<fFilterConfig.fName<<"\n";
+
+    mfi<<"Will ";
+    if (!fApplyPostfilter)
+      mfi<<"not ";
+    mfi<<"apply post-filter";
+    if (fApplyPostfilter)
+      mfi<<fPostfilterConfig.fName<<" with cut-off at "<<fPostfilterConfig.fCutoff<<" MHz";
+    mfi<<"\n";
+
     // build post filter (if required)
     if (fApplyPostfilter) BuildExtraFilter(fxG1, fPostfilterConfig);
 
